@@ -3,8 +3,8 @@
     <el-header class="header">黑土音乐</el-header>
     <el-container>
       <el-aside width="200px" class="aside">
-        <el-menu default-active="/findMusic" class="el-menu-vertical-demo list" :router="true">
-          <el-menu-item index="/findMusic">
+        <el-menu default-active="$route.path" class="el-menu-vertical-demo list" :router="true">
+          <el-menu-item index="/">
             <i class="el-icon-search"></i>
             <span slot="title">发现音乐</span>
           </el-menu-item>

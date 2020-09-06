@@ -35,7 +35,6 @@ export default {
       musicList: [],
       flag: true,
       type: "",
-      //   musicInfo: [],
     };
   },
   methods: {

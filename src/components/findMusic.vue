@@ -39,7 +39,6 @@ export default {
         });
       });
       this.$refs.musicList.musicList = ret.data.result;
-      console.log(ret.data.result);
     });
   },
   data() {
