@@ -58,10 +58,10 @@ export default {
   },
 };
 </script>
-<style scoped>
-.app {
+<style>
+/* .app {
   width: 100%;
-}
+} */
 .searchBar {
   margin: 0 auto 20px;
   width: 300px;

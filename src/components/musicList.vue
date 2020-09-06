@@ -53,7 +53,7 @@ export default {
 }
 .info img {
   vertical-align: middle;
-  width: 40px;
+  width: 60px;
   margin: 0 10px;
 }
 th {
@@ -67,7 +67,7 @@ tbody tr:hover {
   background-color: #ccc;
 }
 .info tr {
-  height: 60px;
+  height: 80px;
   line-height: 40px;
 }
 .info tr td:nth-child(1) {
