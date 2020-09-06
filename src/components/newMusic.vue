@@ -37,6 +37,7 @@ export default {
       if (this.inputValue.trim() == "") {
         return;
       }
+      this.$refs.musicList.flag = false;
       axios({
         url: "https://autumnfish.cn/search?keywords=?" + this.inputValue,
       }).then((ret) => {

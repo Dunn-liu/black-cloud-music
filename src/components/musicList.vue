@@ -1,5 +1,5 @@
 <template>
-  <table class="info">
+  <table class="info" cellpadding="0" cellspacing="0">
     <thead>
       <tr style="text-align:left">
         <th style="padding-left:50px">音乐标题</th>
@@ -17,7 +17,7 @@
       >
         <td>
           <span class="index">{{index+1}}</span>
-          <img :src="item.picUrl" alt v-if="item.picUrl!=undefind" />
+          <img :src="item.picUrl" alt v-if="flag" />
           {{item.name}}
         </td>
         <td>{{item.song.artists.join(' / ')}}</td>
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       musicList: [],
+      flag: true,
       //   musicInfo: [],
     };
   },
@@ -55,11 +56,18 @@ export default {
   width: 40px;
   margin: 0 10px;
 }
+th {
+  padding: 0 10px;
+}
 tbody tr {
   cursor: pointer;
+  margin: 10px 0;
+}
+tbody tr:hover {
+  background-color: #ccc;
 }
 .info tr {
-  height: 40px;
+  height: 60px;
   line-height: 40px;
 }
 .info tr td:nth-child(1) {

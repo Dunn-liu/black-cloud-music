@@ -24,12 +24,12 @@ export default {
     musicList,
   },
   created() {
-    axios({
-      url: "https://autumnfish.cn/banner?" + Math.random() * 9999,
-    }).then((ret) => {
-      // console.log(ret);
-      this.banners = ret.data.banners;
-    });
+    // axios({
+    //   url: "https://autumnfish.cn/banner?" + Math.random() * 9999,
+    // }).then((ret) => {
+    //   // console.log(ret);
+    //   this.banners = ret.data.banners;
+    // });
     axios({
       url: "https://autumnfish.cn/personalized/newsong?" + Math.random() * 9999,
     }).then((ret) => {
@@ -43,7 +43,48 @@ export default {
   },
   data() {
     return {
-      banners: [],
+      banners: [
+        {
+          imageUrl:
+            "http://p1.music.126.net/W91VG_sqazRvWQals8NCJA==/109951165296401913.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/hJjkv6vyFCnSWptLtIVbCw==/109951165296403790.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/kulm-yDdl6g5YGfj6NXKlQ==/109951165297633707.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/sYoA0fB0QDYaBU2oRcgZMg==/109951165297397622.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/lrIXrzZy9NU_w1OUonk2IA==/109951165297669479.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/tm5vqyShskNIEbx4LOdSBA==/109951165297659382.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/gsyFV_AptSTtNZLTpKv-_w==/109951165297687636.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/wNCAh__ACmZAKjDY_TDlWQ==/109951165298241884.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/Br2QVaJeAamOWzZTEpXpzQ==/109951165297688226.jpg",
+        },
+        {
+          imageUrl:
+            "http://p1.music.126.net/RaVzxBGjFMpi2QEmd57u-g==/109951165297686426.jpg",
+        },
+      ],
     };
   },
 };

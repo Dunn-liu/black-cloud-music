@@ -1,7 +1,5 @@
 <template>
-  <div>
-    最新mv
-  </div>
+  <div></div>
 </template>
 <script>
 export default {};
