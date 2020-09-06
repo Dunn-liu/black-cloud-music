@@ -34,6 +34,11 @@ const router = new VueRouter({
       component: musicPlay
     },
     {
+      path: '/mvPlay',
+      name,
+      component: mvPlay
+    },
+    {
       path: '*',
       redirect: '/findMusic'
     }
@@ -44,6 +49,7 @@ import findMusic from './components/findMusic.vue'
 import newMusic from './components/newMusic.vue'
 import newMv from './components/newMv.vue'
 import musicPlay from './components/musicPlay.vue'
+import mvPlay from './components/mvPlay.vue'
 Vue.config.productionTip = false
 
 new Vue({

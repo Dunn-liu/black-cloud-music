@@ -18,12 +18,11 @@ export default {
     axios({
       url: "https://autumnfish.cn/personalized/newsong?" + Math.random() * 9999,
     }).then((ret) => {
-      console.log(ret);
-      this.$refs.musicList.musicList = ret.data.result;
       ret.data.result.forEach((item) => {
         item.song.artists = item.song.artists.map((item) => {
           return item.name;
         });
+        this.$refs.musicList.musicList = ret.data.result;
       });
     });
   },
@@ -44,12 +43,14 @@ export default {
         // ret.data.result.song = ret.data.result.songs;
         console.log(ret);
         ret.data.result.songs.forEach((item) => {
-          item.song = {};
-          item.song.album = item.album;
-          item.song.artists = item.artists.map((item) => {
-            return item.name;
-          });
-          item.song.duration = item.duration;
+          item.song = {
+            ftype: item.ftype,
+            album: item.album,
+            artists: item.artists.map((item) => {
+              return item.name;
+            }),
+            duration: item.duration,
+          };
         });
         this.$refs.musicList.musicList = ret.data.result.songs;
         console.log(ret.data.result.songs);

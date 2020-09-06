@@ -30,7 +30,7 @@ export default {
           return item.name;
         })
         .join(" / ");
-      //   console.log(this.singer);
+      console.log(ret);
     });
   },
   data() {

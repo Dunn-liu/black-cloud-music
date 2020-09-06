@@ -13,7 +13,7 @@
         v-for="(item,index) in musicList"
         :key="index"
         onselectstart="return false;"
-        @click="musicPlay(item.id)"
+        @click="musicPlay(item.id,item.song.ftype,item.name)"
       >
         <td>
           <span class="index">{{index+1}}</span>
@@ -23,6 +23,7 @@
         <td>{{item.song.artists.join(' / ')}}</td>
         <td>{{item.song.album.name}}</td>
         <td>{{(('00000'+Math.floor(item.song.duration/1000/60)).slice(-2)+':'+(('00000'+Math.floor(item.song.duration/1000%60)).slice(-2)))}}</td>
+        <!-- <td>{{(('00000'+Math.floor(item.song.duration/1000/60)).slice(-2)+':'+(('00000'+item.song.duration/1000%60).slice(-2)))}}</td> -->
       </tr>
     </tbody>
   </table>
@@ -33,15 +34,17 @@ export default {
     return {
       musicList: [],
       flag: true,
+      type: "",
       //   musicInfo: [],
     };
   },
   methods: {
-    musicPlay(id, type) {
-      if (type == 3000) {
-        return;
+    musicPlay(id, type, name) {
+      if (type == 0) {
+        this.$router.push({ path: "musicPlay?id=" + id });
+      } else {
+        this.$router.push({ path: "mvPlay?id=" + id, query: { name } });
       }
-      this.$router.push("musicPlay?id=" + id);
     },
   },
 };

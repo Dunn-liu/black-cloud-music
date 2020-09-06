@@ -33,12 +33,13 @@ export default {
     axios({
       url: "https://autumnfish.cn/personalized/newsong?" + Math.random() * 9999,
     }).then((ret) => {
-      this.$refs.musicList.musicList = ret.data.result;
       ret.data.result.forEach((item) => {
         item.song.artists = item.song.artists.map((item) => {
           return item.name;
         });
       });
+      this.$refs.musicList.musicList = ret.data.result;
+      console.log(ret.data.result);
     });
   },
   data() {

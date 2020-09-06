@@ -16,6 +16,7 @@ export default {
     musicList,
   },
   created() {
+    // console.log(this.$refs.musicList.flag);
     axios({
       url: "https://autumnfish.cn/mv/all?" + Math.random() * 999,
     }).then((ret) => {
@@ -31,12 +32,37 @@ export default {
         item.picUrl = item.cover;
       });
       this.$refs.musicList.musicList = ret.data.data;
+      console.log(ret.data.data);
     });
   },
   data() {
     return {
       inputValue: "",
     };
+  },
+  methods: {
+    search() {
+      if (this.inputValue.trim() == "") {
+        return;
+      }
+      axios({
+        url:
+          "https://autumnfish.cn/search?type=1004&keywords=" + this.inputValue,
+      }).then((ret) => {
+        console.log(ret);
+        ret.data.result.mvs.forEach((item) => {
+          item.picUrl = item.cover;
+          item.song = {
+            artists: item.artists.map((item) => {
+              return item.name;
+            }),
+            album: { name: item.name },
+            duration: item.duration,
+          };
+        });
+        this.$refs.musicList.musicList = ret.data.result.mvs;
+      });
+    },
   },
 };
 </script>
