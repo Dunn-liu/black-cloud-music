@@ -17,8 +17,8 @@
       >
         <td>
           <span class="index">{{index+1}}</span>
-          <img :src="item.picUrl" alt />
-          <span>{{item.name}}</span>
+          <img :src="item.picUrl" alt v-if="item.picUrl!=undefind" />
+          {{item.name}}
         </td>
         <td>{{item.song.artists.join(' / ')}}</td>
         <td>{{item.song.album.name}}</td>
@@ -48,6 +48,7 @@ export default {
 <style scoped>
 .info {
   width: 100%;
+  table-layout: fixed;
 }
 .info img {
   vertical-align: middle;
@@ -73,9 +74,17 @@ tbody tr {
 .info tr td:nth-child(4) {
   width: 20%;
 }
+.info tr td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 10px;
+}
 .index {
   display: inline-block;
   width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
 }
 </style>

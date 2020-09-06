@@ -16,7 +16,7 @@ export default {
   },
   created() {
     axios({
-      url: "https://autumnfish.cn/personalized/newsong" + Math.random() * 9999,
+      url: "https://autumnfish.cn/personalized/newsong?" + Math.random() * 9999,
     }).then((ret) => {
       console.log(ret);
       this.$refs.musicList.musicList = ret.data.result;
@@ -34,20 +34,24 @@ export default {
   },
   methods: {
     search() {
+      if (this.inputValue.trim() == "") {
+        return;
+      }
       axios({
-        url: "https://autumnfish.cn/search?keywords=" + this.inputValue,
+        url: "https://autumnfish.cn/search?keywords=?" + this.inputValue,
       }).then((ret) => {
+        // ret.data.result.song = ret.data.result.songs;
         console.log(ret);
-        console.log(ret);
-        // ret.data.result.songs.forEach((item) => {
-        //   // item.song.artists = item.artists.map((item) => {
-        //   //   return item.name;
-        //   // });
-        //   // item.song.album = item.album;
-        //   // item.song.duration = item.duration;
-        // });
-        // this.$refs.musicList.musicList = ret.data.result.songs;
-        // console.log(ret.data.result.songs);
+        ret.data.result.songs.forEach((item) => {
+          item.song = {};
+          item.song.album = item.album;
+          item.song.artists = item.artists.map((item) => {
+            return item.name;
+          });
+          item.song.duration = item.duration;
+        });
+        this.$refs.musicList.musicList = ret.data.result.songs;
+        console.log(ret.data.result.songs);
       });
     },
   },

@@ -15,7 +15,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: findMusic
+      redirect: '/findMusic'
     },
     {
       path: '/findMusic',
@@ -32,6 +32,10 @@ const router = new VueRouter({
     {
       path: '/musicPlay',
       component: musicPlay
+    },
+    {
+      path: '*',
+      redirect: '/findMusic'
     }
   ]
 })

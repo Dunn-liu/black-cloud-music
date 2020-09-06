@@ -25,13 +25,13 @@ export default {
   },
   created() {
     axios({
-      url: "https://autumnfish.cn/banner",
+      url: "https://autumnfish.cn/banner?" + Math.random() * 9999,
     }).then((ret) => {
       // console.log(ret);
       this.banners = ret.data.banners;
     });
     axios({
-      url: "https://autumnfish.cn/personalized/newsong",
+      url: "https://autumnfish.cn/personalized/newsong?" + Math.random() * 9999,
     }).then((ret) => {
       this.$refs.musicList.musicList = ret.data.result;
       ret.data.result.forEach((item) => {
